@@ -12,11 +12,11 @@ import lombok.Data;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long CourseID;
-    private String SubjectID;
-    private String LecturerID;
-    private String CentureID;
-    private String StudentID;
-    private String JoinDate;
-    private String EndDate;
+    private Long courseID;
+    private String subjectId;
+    private String lecturerId;
+    private String centureId;
+    private String studentId;
+    private String joinDate;
+    private String endDate;
 }

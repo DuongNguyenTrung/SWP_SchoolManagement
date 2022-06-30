@@ -12,9 +12,10 @@ import lombok.Data;
 public class Attendence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long AttendanceID;
-    private Long SlotID;
-    private Long StudentInCourseID;
-    private String AttendanceStatus;
-    private String AttendanceDate;
+    
+    private Long id;
+    private Long slotId;
+    private Long studentInCourseId;
+    private String attendanceStatus;
+    private String attendanceDate;
 }

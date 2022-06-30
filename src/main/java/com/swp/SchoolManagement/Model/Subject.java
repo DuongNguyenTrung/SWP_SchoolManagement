@@ -12,10 +12,10 @@ import lombok.Data;
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long SubjectID;
-    private Long CategoryID;
-    private String SubjectName;
-    private String SubjectCode;
-    private String SubjectImage;
-    private String SubjectDesc;
+    private Long id;
+    private Long categoryId;
+    private String subjectName;
+    private String subjectCode;
+    private String image;
+    private String description;
 }

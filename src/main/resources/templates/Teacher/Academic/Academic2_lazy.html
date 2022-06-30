@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://demo.creativeitem.com/ekattor/superadmin/routine -->
+<html data-select2-id="14"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- all the meta tags -->
+    
+    <title>Routine | University of Michigan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
+    <meta content="Creativeitem" name="author">
+    <!-- App favicon -->
+<link rel="shortcut icon" href="https://demo.creativeitem.com/ekattor/uploads/system/logo/favicon.png">
+    <!-- all the css files -->
+    <!-- third party css -->
+<link href="./Academic2_lazy_files/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
+<link href="./Academic2_lazy_files/fullcalendar.min.css" rel="stylesheet" type="text/css">
+<link href="./Academic2_lazy_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="./Academic2_lazy_files/dataTables.bootstrap4.css" rel="stylesheet" type="text/css">
+<link href="./Academic2_lazy_files/responsive.bootstrap4.css" rel="stylesheet" type="text/css">
+<link href="./Academic2_lazy_files/buttons.bootstrap4.css" rel="stylesheet" type="text/css">
+<link href="./Academic2_lazy_files/select.bootstrap4.css" rel="stylesheet" type="text/css">
+<link href="./Academic2_lazy_files/summernote-bs4.css" rel="stylesheet" type="text/css">
+<link href="./Academic2_lazy_files/simplemde.min.css" rel="stylesheet" type="text/css">
+<!-- third party css end -->
+
+<!-- App css -->
+<link href="./Academic2_lazy_files/icons.min.css" rel="stylesheet" type="text/css">
+<link href="./Academic2_lazy_files/app.min.css" rel="stylesheet" type="text/css">
+
+<!-- CUSTOM CSS FILES -->
+<link href="./Academic2_lazy_files/custom.css" rel="stylesheet" type="text/css">
+<link href="./Academic2_lazy_files/content-placeholder.css" rel="stylesheet" type="text/css">
+<link href="./Academic2_lazy_files/addon.css" rel="stylesheet" type="text/css">
+
+<!--Notify for ajax-->
+<link rel="stylesheet" href="./Academic2_lazy_files/toastr.min.css">
+
+<!--Jquery-->
+<script src="./Academic2_lazy_files/jquery.min.js.tải xuống"></script>
+
+<link rel="stylesheet" href="./Academic2_lazy_files/bootstrap-tagsinput.css"><style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style><style type="text/css">@font-face { font-family: Roboto; src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf"); }</style></head>
+<body data-layout="detached" cz-shortcut-listen="true">
+    <!-- HEADER -->
+    <!-- Topbar Start -->
+<div class="navbar-custom topnav-navbar topnav-navbar-dark">
+    <div class="container-fluid">
+
+        <!-- LOGO -->
+        <a href="https://demo.creativeitem.com/ekattor/" class="topnav-logo" style="min-width: unset;">
+            <span class="topnav-logo-lg">
+                <img src="./Academic2_lazy_files/logo-light.png" alt="" height="40">
+            </span>
+            <span class="topnav-logo-sm">
+                <img src="./Academic2_lazy_files/logo-light-sm.png" alt="" height="40">
+            </span>
+        </a>
+
+        <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                        <li class="dropdown notification-list">
+                  <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="https://demo.creativeitem.com/ekattor/superadmin/routine#" role="button" aria-haspopup="false" aria-expanded="false" onclick="getLanguageList()">
+                      <i class="mdi mdi-translate noti-icon"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
+
+                      <!-- item-->
+                      <div class="dropdown-item noti-title">
+                          <h5 class="m-0">
+                              Language                          </h5>
+                      </div>
+
+                      <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 196.5px;"><div class="slimscroll" id="language-list" style="min-height: 150px; overflow: hidden; width: auto; height: 196.5px;">
+
+                      </div><div class="slimScrollBar" style="background: rgb(158, 165, 171); width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 196.001px;"></div><div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                  </div>
+              </li>
+          
+            <li class="dropdown notification-list">
+                <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="https://demo.creativeitem.com/ekattor/superadmin/routine#" role="button" aria-haspopup="false" aria-expanded="false">
+                <span class="account-user-avatar">
+                    <img src="./Academic2_lazy_files/1.jpg" alt="user-image" class="rounded-circle">
+                </span>
+                <span>
+                    <span class="account-user-name">John Doe</span>
+                                            <span class="account-position">Superadmin</span>
+                    
+                </span>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                <!-- item-->
+                <div class=" dropdown-header noti-title">
+                    <h6 class="text-overflow m-0">Welcome !</h6>
+                </div>
+
+                <!-- item-->
+                <a href="https://demo.creativeitem.com/ekattor/superadmin/profile" class="dropdown-item notify-item">
+                    <i class="mdi mdi-account-circle mr-1"></i>
+                    <span>My account</span>
+                </a>
+                                    <!-- item-->
+                    <a href="https://demo.creativeitem.com/ekattor/superadmin/system_settings" class="dropdown-item notify-item">
+                        <i class="mdi mdi-account-edit mr-1"></i>
+                        <span>Settings</span>
+                    </a>
+                
+                                    <!-- item-->
+                    <a href="mailto:support@creativeitem.com?Subject=Help%20On%20This" target="_blank" class="dropdown-item notify-item">
+                        <i class="mdi mdi-lifebuoy mr-1"></i>
+                        <span>Support</span>
+                    </a>
+                
+                <!-- item-->
+                <a href="https://demo.creativeitem.com/ekattor/login/logout" class="dropdown-item notify-item">
+                    <i class="mdi mdi-logout mr-1"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+        </li>
+
+    </ul>
+    <a class="button-menu-mobile disable-btn">
+        <div class="lines">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </a>
+    <div class="visit_website">
+        <h4 style="color: #fff; float: left;"> Ekattor School ERP (With Addon)</h4>
+        <a href="https://demo.creativeitem.com/ekattor/home" target="" class="btn btn-outline-light ml-3">Visit website</a>
+        <img class="hidden content-placeholder" src="./Academic2_lazy_files/loader.gif" alt="" height="35px;" style="display: none;">
+    </div>
+</div>
+</div>
+<!-- end Topbar -->
+
+
+<script type="text/javascript">
+function getLanguageList() {
+    $.ajax({
+        url: "https://demo.creativeitem.com/ekattor/superadmin/language/dropdown",
+        success: function(response){
+            console.log(response);
+            $('#language-list').html(response);
+        }
+    });
+}
+</script>
+    <div class="container-fluid" data-select2-id="13">
+        <div class="wrapper" data-select2-id="12">
+            <!-- BEGIN CONTENT -->
+            <!-- SIDEBAR -->
+            <!-- ========== Left Sidebar Start ========== -->
+<div class="left-side-menu left-side-menu-detached content-main active">
+
+  <div class="leftbar-user">
+    <a href="javascript: void(0);">
+      <img src="./Academic2_lazy_files/1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
+            <span class="leftbar-user-name">John Doe</span>
+    </a>
+  </div>
+  <!--- Sidemenu -->
+  <ul class="metismenu side-nav side-nav-light in">
+    <li class="side-nav-title side-nav-item">Navigation</li>
+    <li class="side-nav-item">
+      <a href="https://demo.creativeitem.com/ekattor/superadmin/dashboard" class="side-nav-link">
+        <i class="dripicons-meter"></i>
+        <span> Dashboard </span>
+      </a>
+    </li>
+
+    <li class="side-nav-item">        <a href="javascript: void(0);" class="side-nav-link">
+          <i class="dripicons-user"></i>
+          <span>Users</span>
+                    <span class="menu-arrow"></span>
+        </a>
+        <ul class="side-nav-second-level collapse" aria-expanded="false">
+                                  <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/admin">Admin                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/student">Child                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/student/create">Admision                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/teacher">Teacher                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/permission">Teacher permission                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/parent">Parent                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/accountant">Accountant                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/librarian">Librarian                                  </a>
+              </li>
+                      </ul></li><li class="side-nav-item active">        <a href="javascript: void(0);" class="side-nav-link active">
+          <i class="dripicons-store"></i>
+          <span>Academic</span>
+                    <span class="menu-arrow"></span>
+        </a>
+        <ul class="side-nav-second-level collapse in" aria-expanded="false">
+                                  <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/attendance">Daily attendance                                  </a>
+              </li>
+                                    <li class="active">
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/routine" class="active">Class routine                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/subject">Subject                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/syllabus">Syllabus                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/manage_class">Class                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/class_room">Class room                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/department">Department                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/event_calendar">Event calender                                  </a>
+              </li>
+                      </ul></li><li class="side-nav-item">        <a href="javascript: void(0);" class="side-nav-link">
+          <i class="dripicons-to-do"></i>
+          <span>Exam</span>
+                    <span class="menu-arrow"></span>
+        </a>
+        <ul class="side-nav-second-level collapse" aria-expanded="false">
+                                  <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/mark">Marks                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/exam">Exam                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/grade">Grades                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/promotion">Promotion                                  </a>
+              </li>
+                      </ul></li><li class="side-nav-item">        <a href="javascript: void(0);" class="side-nav-link">
+          <i class="dripicons-suitcase"></i>
+          <span>Accounting</span>
+                    <span class="menu-arrow"></span>
+        </a>
+        <ul class="side-nav-second-level collapse" aria-expanded="false">
+                                  <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/invoice">Student fee manager                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/expense_category">Expense category                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/expense">Expense manager                                  </a>
+              </li>
+                      </ul></li><li class="side-nav-item">        <a href="javascript: void(0);" class="side-nav-link">
+          <i class="dripicons-archive"></i>
+          <span>Back office</span>
+                    <span class="menu-arrow"></span>
+        </a>
+        <ul class="side-nav-second-level collapse" aria-expanded="false">
+                                  <li class="side-nav-item">
+                <a href="javascript: void(0);" aria-expanded="false">Library                                  <span class="menu-arrow"></span>
+                </a>
+                <ul class="side-nav-third-level collapse" aria-expanded="false">
+                                      <li>
+                                            <a href="https://demo.creativeitem.com/ekattor/superadmin/book">Book list manager</a>
+                    </li>
+                                      <li>
+                                            <a href="https://demo.creativeitem.com/ekattor/superadmin/book_issue">Book issue report</a>
+                    </li>
+                                  </ul>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/session_manager">Session                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/addon_manager">Addon manager                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/noticeboard">Noticeboard                                  </a>
+              </li>
+                      </ul></li><li class="side-nav-item">        <a href="javascript: void(0);" class="side-nav-link">
+          <i class="dripicons-cutlery"></i>
+          <span>Settings</span>
+                    <span class="menu-arrow"></span>
+        </a>
+        <ul class="side-nav-second-level collapse" aria-expanded="false">
+                                  <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/system_settings">System settings                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/website_settings">Website settings                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/school_settings">School settings                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/payment_settings">Payment settings                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/language">Language settings                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/smtp_settings">Smtp settings                                  </a>
+              </li>
+                                    <li>
+                                <a href="https://demo.creativeitem.com/ekattor/superadmin/about">About                                  </a>
+              </li>
+                      </ul>  </li></ul>
+  <!-- End Sidebar -->
+
+  <div class="clearfix"></div>
+  <!-- Sidebar -left -->
+
+</div>
+<!-- Left Sidebar End -->
+
+            <!-- PAGE CONTAINER-->
+            <div class="content-page" data-select2-id="11">
+                <div class="content content-main" data-select2-id="10">
+                    <div class="loadings hidden"></div>
+                    <!-- BEGIN PlACE PAGE CONTENT HERE -->
+                    <!--title-->
+<div class="row ">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="page-title">
+					<i class="mdi mdi-calendar-today title_icon"></i> Class routine					<button type="button" class="btn btn-outline-primary btn-rounded alignToTitle" onclick="rightModal(&#39;https://demo.creativeitem.com/ekattor/modal/popup/routine/create&#39;, &#39;Create routine&#39;)"> <i class="mdi mdi-plus"></i> Add class routine</button>
+        </h4>
+      </div> <!-- end card body-->
+    </div> <!-- end card -->
+  </div><!-- end col-->
+</div>
+
+<div class="row" data-select2-id="9">
+	<div class="col-12" data-select2-id="8">
+		<div class="card" data-select2-id="7">
+			<div class="row mt-3" data-select2-id="6">
+				<div class="col-md-1 mb-1"></div>
+				<div class="col-md-4 mb-1">
+					<select name="class" id="class_id" class="form-control select2 select2-hidden-accessible" data-toggle="select2" required="" onchange="classWiseSection(this.value)" data-select2-id="class_id" tabindex="-1" aria-hidden="true">
+						<option value="" data-select2-id="2">Select a class</option>
+													<option value="1" data-select2-id="15">Class One</option>
+													<option value="2" data-select2-id="16">Class Two</option>
+													<option value="3" data-select2-id="17">Class Three</option>
+													<option value="4" data-select2-id="18">Class Four</option>
+													<option value="5" data-select2-id="19">Class Five</option>
+													<option value="6" data-select2-id="20">Class Six</option>
+													<option value="7" data-select2-id="21">Class Seven</option>
+													<option value="8" data-select2-id="22">Class Eight</option>
+													<option value="9" data-select2-id="23">Class Nine</option>
+													<option value="10" data-select2-id="24">Class Ten</option>
+											</select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="1" style="width: 479.266px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-class_id-container"><span class="select2-selection__rendered" id="select2-class_id-container" role="textbox" aria-readonly="true" title="Class One">Class One</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+				</div>
+				<div class="col-md-4 mb-1">
+					<select name="section" id="section_id" class="form-control select2 select2-hidden-accessible" data-toggle="select2" required="" data-select2-id="section_id" tabindex="-1" aria-hidden="true">    <option value="1" data-select2-id="26">A</option>
+      <option value="11" data-select2-id="28">B</option>
+      <option value="12" data-select2-id="29">C</option>
+      <option value="13" data-select2-id="30">D</option>
+  </select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="3" style="width: 479.266px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-section_id-container"><span class="select2-selection__rendered" id="select2-section_id-container" role="textbox" aria-readonly="true" title="A">A</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+				</div>
+				<div class="col-md-2">
+					<button class="btn btn-block btn-secondary" onclick="filter_class_routine()">Filter</button>
+				</div>
+			</div>
+			<div class="card-body class_routine_content">    <table class="table table-striped table-bordered table-centered mb-0">
+        <tbody>
+            <tr>
+                <td style="font-weight: bold; width : 100px;">Saturday</td>
+                <td class="m-1">
+
+                                                    <div class="btn-group text-left">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-book-open-variant"></i>
+                                	English                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-clock"></i>
+                                	9:0 - 10:0                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-account"></i>
+                                	Alison Frami                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-home-automation"></i>
+                                	Room-1                                </p>
+                                <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="rightModal(&#39;https://demo.creativeitem.com/ekattor/modal/popup/routine/edit/1&#39;, &#39;Update routine&#39;);">Edit</a>
+                                    <a class="dropdown-item" onclick="confirmModal(&#39;https://demo.creativeitem.com/ekattor/superadmin/routine/delete/1&#39;, getFilteredClassRoutine)">Delete</a>
+                                </div>
+                            </div>
+                                                    <div class="btn-group text-left">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-book-open-variant"></i>
+                                	Mathematics                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-clock"></i>
+                                	2:10 - 2:10                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-account"></i>
+                                	Dr. Nyasia Rowe                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-home-automation"></i>
+                                	Room-2                                </p>
+                                <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="rightModal(&#39;https://demo.creativeitem.com/ekattor/modal/popup/routine/edit/2&#39;, &#39;Update routine&#39;);">Edit</a>
+                                    <a class="dropdown-item" onclick="confirmModal(&#39;https://demo.creativeitem.com/ekattor/superadmin/routine/delete/2&#39;, getFilteredClassRoutine)">Delete</a>
+                                </div>
+                            </div>
+                                                    <div class="btn-group text-left">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-book-open-variant"></i>
+                                	Biology                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-clock"></i>
+                                	13:0 - 14:0                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-account"></i>
+                                	Alec Conn                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-home-automation"></i>
+                                	Room-5                                </p>
+                                <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="rightModal(&#39;https://demo.creativeitem.com/ekattor/modal/popup/routine/edit/3&#39;, &#39;Update routine&#39;);">Edit</a>
+                                    <a class="dropdown-item" onclick="confirmModal(&#39;https://demo.creativeitem.com/ekattor/superadmin/routine/delete/3&#39;, getFilteredClassRoutine)">Delete</a>
+                                </div>
+                            </div>
+                                        </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold; width : 100px;">Sunday</td>
+                <td class="m-1">
+
+                        
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold; width : 100px;">Monday</td>
+                <td class="m-1">
+
+                                                    <div class="btn-group text-left">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-book-open-variant"></i>
+                                	English                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-clock"></i>
+                                	13:0 - 14:0                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-account"></i>
+                                	Lilla Marquardt                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-home-automation"></i>
+                                	Room-1                                </p>
+                                <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="rightModal(&#39;https://demo.creativeitem.com/ekattor/modal/popup/routine/edit/4&#39;, &#39;Update routine&#39;);">Edit</a>
+                                    <a class="dropdown-item" onclick="confirmModal(&#39;https://demo.creativeitem.com/ekattor/superadmin/routine/delete/4&#39;, getFilteredClassRoutine)">Delete</a>
+                                </div>
+                            </div>
+                                                    <div class="btn-group text-left">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-book-open-variant"></i>
+                                	Physical Education                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-clock"></i>
+                                	14:0 - 15:0                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-account"></i>
+                                	Abe Rosenbaum                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-home-automation"></i>
+                                	Room-3                                </p>
+                                <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="rightModal(&#39;https://demo.creativeitem.com/ekattor/modal/popup/routine/edit/5&#39;, &#39;Update routine&#39;);">Edit</a>
+                                    <a class="dropdown-item" onclick="confirmModal(&#39;https://demo.creativeitem.com/ekattor/superadmin/routine/delete/5&#39;, getFilteredClassRoutine)">Delete</a>
+                                </div>
+                            </div>
+                        
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold; width : 100px;">Tuesday</td>
+                <td class="m-1">
+
+                                                    <div class="btn-group text-left">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-book-open-variant"></i>
+                                	English                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-clock"></i>
+                                	10:0 - 11:0                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-account"></i>
+                                	Alison Frami                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-home-automation"></i>
+                                	Room-1                                </p>
+                                <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="rightModal(&#39;https://demo.creativeitem.com/ekattor/modal/popup/routine/edit/6&#39;, &#39;Update routine&#39;);">Edit</a>
+                                    <a class="dropdown-item" onclick="confirmModal(&#39;https://demo.creativeitem.com/ekattor/superadmin/routine/delete/6&#39;, getFilteredClassRoutine)">Delete</a>
+                                </div>
+                            </div>
+                                                    <div class="btn-group text-left">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-book-open-variant"></i>
+                                	Physical Education                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-clock"></i>
+                                	11:0 - 12:0                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-account"></i>
+                                	Abe Rosenbaum                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-home-automation"></i>
+                                	Room-4                                </p>
+                                <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="rightModal(&#39;https://demo.creativeitem.com/ekattor/modal/popup/routine/edit/7&#39;, &#39;Update routine&#39;);">Edit</a>
+                                    <a class="dropdown-item" onclick="confirmModal(&#39;https://demo.creativeitem.com/ekattor/superadmin/routine/delete/7&#39;, getFilteredClassRoutine)">Delete</a>
+                                </div>
+                            </div>
+                        
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold; width : 100px;">Wednesday</td>
+                <td class="m-1">
+
+                                                    <div class="btn-group text-left">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-book-open-variant"></i>
+                                	Computer                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-clock"></i>
+                                	10:0 - 11:0                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-account"></i>
+                                	Lilla Marquardt                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-home-automation"></i>
+                                	Room-3                                </p>
+                                <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="rightModal(&#39;https://demo.creativeitem.com/ekattor/modal/popup/routine/edit/8&#39;, &#39;Update routine&#39;);">Edit</a>
+                                    <a class="dropdown-item" onclick="confirmModal(&#39;https://demo.creativeitem.com/ekattor/superadmin/routine/delete/8&#39;, getFilteredClassRoutine)">Delete</a>
+                                </div>
+                            </div>
+                        
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold; width : 100px;">Thursday</td>
+                <td class="m-1">
+
+                                                    <div class="btn-group text-left">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-book-open-variant"></i>
+                                	Business Studies                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-clock"></i>
+                                	10:0 - 11:0                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-account"></i>
+                                	Dr. Nyasia Rowe                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-home-automation"></i>
+                                	Room-4                                </p>
+                                <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="rightModal(&#39;https://demo.creativeitem.com/ekattor/modal/popup/routine/edit/9&#39;, &#39;Update routine&#39;);">Edit</a>
+                                    <a class="dropdown-item" onclick="confirmModal(&#39;https://demo.creativeitem.com/ekattor/superadmin/routine/delete/9&#39;, getFilteredClassRoutine)">Delete</a>
+                                </div>
+                            </div>
+                                                    <div class="btn-group text-left">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-book-open-variant"></i>
+                                	Biology                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-clock"></i>
+                                	13:0 - 14:0                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-account"></i>
+                                	Alec Conn                                </p>
+                                <p style="margin-bottom: 0px;"><i class="mdi mdi-home-automation"></i>
+                                	Room-2                                </p>
+                                <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="rightModal(&#39;https://demo.creativeitem.com/ekattor/modal/popup/routine/edit/10&#39;, &#39;Update routine&#39;);">Edit</a>
+                                    <a class="dropdown-item" onclick="confirmModal(&#39;https://demo.creativeitem.com/ekattor/superadmin/routine/delete/10&#39;, getFilteredClassRoutine)">Delete</a>
+                                </div>
+                            </div>
+                        
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold; width : 100px;">Friday</td>
+                <td class="m-1">
+
+                        
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+<style>
+    .dropdown-toggle::after{
+        display: none;
+    }
+</style>
+</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+function classWiseSection(classId) {
+	$.ajax({
+		url: "https://demo.creativeitem.com/ekattor/superadmin/section/list/"+classId,
+		success: function(response){
+			$('#section_id').html(response);
+		}
+	});
+}
+
+function filter_class_routine(){
+	var class_id = $('#class_id').val();
+	var section_id = $('#section_id').val();
+	if(class_id != "" && section_id!= ""){
+		getFilteredClassRoutine();
+	}else{
+		toastr.error('Please select a class and section');
+	}
+}
+
+var getFilteredClassRoutine = function() {
+	var class_id = $('#class_id').val();
+	var section_id = $('#section_id').val();
+	if(class_id != "" && section_id!= ""){
+		$.ajax({
+			url: 'https://demo.creativeitem.com/ekattor/superadmin/routine/filter/'+class_id+'/'+section_id,
+			success: function(response){
+				$('.class_routine_content').html(response);
+			}
+		});
+	}
+}
+</script>
+                    <!-- END PLACE PAGE CONTENT HERE -->
+                </div>
+                <!-- Footer -->
+                <!-- Footer Start -->
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                © <a href="http://creativeitem.com/" target="_blank">By Creativeitem</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end Footer -->
+            </div>
+            <!-- END CONTENT -->
+        </div>
+    </div>
+    <!-- all the js files -->
+    
+<!-- bundle -->
+<script src="./Academic2_lazy_files/app.min.js.tải xuống"></script>
+
+<!-- third party js -->
+<script src="./Academic2_lazy_files/jquery.dataTables.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/dataTables.bootstrap4.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/dataTables.responsive.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/responsive.bootstrap4.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/dataTables.buttons.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/buttons.bootstrap4.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/buttons.html5.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/buttons.flash.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/buttons.print.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/dataTables.keyTable.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/dataTables.select.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/Chart.bundle.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/jquery-jvectormap-1.2.2.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/jquery-jvectormap-world-mill-en.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/demo.datatable-init.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/demo.form-wizard.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/jquery-ui.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/fullcalendar.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/summernote-bs4.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/demo.summernote.js.tải xuống"></script>
+
+
+<!--Notify for ajax-->
+<script src="./Academic2_lazy_files/toastr.min.js.tải xuống"></script>
+
+<script src="./Academic2_lazy_files/jquery.validate.min.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/additional-methods.min.js.tải xuống"></script>
+<!-- demo app -->
+<script src="./Academic2_lazy_files/demo.dashboard.js.tải xuống"></script>
+<!-- end demo js-->
+
+<!--Custom JS-->
+<script src="./Academic2_lazy_files/ajax_form_submission.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/custom.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/content-placeholder.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/addon.js.tải xuống"></script>
+<script src="./Academic2_lazy_files/init.js.tải xuống"></script>
+
+<!-- dragula js-->
+<script src="./Academic2_lazy_files/dragula.min.js.tải xuống"></script>
+<!-- component js -->
+<script src="./Academic2_lazy_files/component.dragula.js.tải xuống"></script>
+
+<script>
+	function error_required_field() {
+	  $.NotificationApp.send("Oh snap!", "Please fill all the required fields" ,"top-right","rgba(0,0,0,0.2)","error");
+	}
+</script>    <!-- Toastr and alert notifications for PHP scripts -->
+<script type="text/javascript">
+function notify(message) {
+  $.NotificationApp.send("Heads up!", message ,"top-right","rgba(0,0,0,0.2)","info");
+}
+
+function success_notify(message) {
+  $.NotificationApp.send("Congratulations!", message ,"top-right","rgba(0,0,0,0.2)","success");
+}
+
+function error_notify(message) {
+  $.NotificationApp.send("Oh snap!", message ,"top-right","rgba(0,0,0,0.2)","error");
+}
+</script>
+
+
+
+
+
+
+<!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+
+    <script type="text/javascript">
+var callBackFunction;
+var callBackFunctionForGenericConfirmationModal;
+function largeModal(url, header)
+{
+  jQuery('#large-modal').modal('show', {backdrop: 'true'});
+  // SHOW AJAX RESPONSE ON REQUEST SUCCESS
+  $.ajax({
+    url: url,
+    success: function(response)
+    {
+      jQuery('#large-modal .modal-body').html(response);
+      jQuery('#large-modal .modal-title').html(header);
+    }
+  });
+}
+
+function previewModal(url, header)
+{
+  jQuery('#preview-modal').modal('show', {backdrop: 'true'});
+  // SHOW AJAX RESPONSE ON REQUEST SUCCESS
+  $.ajax({
+    url: url,
+    success: function(response)
+    {
+      jQuery('#preview-modal .modal-body').html(response);
+      jQuery('#preview-modal .modal-title').html(header);
+    }
+  });
+}
+
+function rightModal(url, header)
+{
+  // LOADING THE AJAX MODAL
+  jQuery('#right-modal').modal('show', {backdrop: 'true'});
+
+  // SHOW AJAX RESPONSE ON REQUEST SUCCESS
+  $.ajax({
+    url: url,
+    success: function(response)
+    {
+      jQuery('#right-modal .modal-body').html(response);
+      jQuery('#right-modal .modal-title').html(header);
+    }
+  });
+}
+
+
+function confirmModal(delete_url, param)
+{
+  jQuery('#alert-modal').modal('show', {backdrop: 'static'});
+  callBackFunction = param;
+  document.getElementById('delete_form').setAttribute('action' , delete_url);
+}
+
+function genericConfirmModal(callBackFunction)
+{
+  jQuery('#genric-confirmation-modal').modal('show', {backdrop: 'static'});
+  callBackFunctionForGenericConfirmationModal = callBackFunction;
+}
+
+function callTheCallBackFunction() {
+  $('#genric-confirmation-modal').modal('hide');
+  callBackFunctionForGenericConfirmationModal();
+}
+function blankFunction(){
+
+}
+</script>
+
+
+
+<!-- Right modal content -->
+<div id="right-modal" class="modal fade" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-right">
+    <div class="modal-content modal_height">
+
+      <div class="modal-header border-1">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body" style="overflow-x:scroll;">
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!--  Large Modal -->
+<div class="modal fade" id="large-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header d-print-none">
+        <h4 class="modal-title" id="myLargeModalLabel"></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Info Alert Modal -->
+<div id="alert-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body p-4">
+        <div class="text-center">
+          <i class="dripicons-information h1 text-info"></i>
+          <h4 class="mt-2">Heads up!</h4>
+          <p class="mt-3">Are you sure?</p>
+          <form method="POST" class="ajaxDeleteForm" action="https://demo.creativeitem.com/ekattor/superadmin/routine" id="delete_form">
+            <button type="button" class="btn btn-info my-2" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-danger my-2" onclick="">Continue</button>
+          </form>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Info Alert Modal THIS MODAL WAS USED BECAUSE OF SOME GENERIC ALERTS-->
+<div id="genric-confirmation-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body p-4">
+        <div class="text-center">
+          <i class="dripicons-information h1 text-info"></i>
+          <h4 class="mt-2">Heads up!</h4>
+          <p class="mt-3">Are you sure?</p>
+          <button type="button" class="btn btn-info my-2" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger my-2" onclick="callTheCallBackFunction()">Continue</button>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="preview-modal" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content course-preview-modal">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" onclick="pageReload()">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body text-center" style="min-height: 300px;">
+            <img style="width: 60px; margin-top: 100px;" src="./Academic2_lazy_files/straight-loader.gif">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function pageReload(){
+    //filterCourse();
+    filterCourseFullPage();
+    //location.reload();
+  }
+</script>
+
+<script>
+    jQuery(".ajaxDeleteForm").submit(function(e) {
+
+        var form = $(this);
+        ajaxSubmit(e, form, callBackFunction);
+    });
+</script>
+
+<script>
+  function showAjaxModal(url, header)
+  {
+      // SHOWING AJAX PRELOADER IMAGE
+      jQuery('#scrollable-modal .modal-body').html('<div style="text-align:center;margin-top:200px;"><img style="width: 100px; opacity: 0.4; " src="https://demo.creativeitem.com/ekattor/assets/backend/images/straight-loader.gif" /></div>');
+      jQuery('#scrollable-modal .modal-title').html('...');
+      // LOADING THE AJAX MODAL
+      jQuery('#scrollable-modal').modal('show', {backdrop: 'true'});
+
+      // SHOW AJAX RESPONSE ON REQUEST SUCCESS
+      $.ajax({
+          url: url,
+          success: function(response)
+          {
+              jQuery('#scrollable-modal .modal-body').html(response);
+              jQuery('#scrollable-modal .modal-title').html(header);
+          }
+      });
+  }
+</script>
+<!-- Scrollable modal -->
+<div class="modal fade" id="scrollable-modal" tabindex="-1" role="dialog" aria-labelledby="scrollableModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="scrollableModalTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+          </div>
+          <div class="modal-body ml-2 mr-2">
+
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+      </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<div class="betternet-wrapper"></div></body></html>

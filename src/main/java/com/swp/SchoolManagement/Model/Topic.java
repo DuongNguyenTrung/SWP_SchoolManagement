@@ -12,9 +12,9 @@ import lombok.Data;
 public class Topic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long TopicID;
-    private Long SubjectID;
-    private String TopicName;
-    private String TopicDesc;
-    private Long CurriculumNumber;
+    private Long id;
+    private Long subjectId;
+    private String topicName;
+    private String topicDesc;
+    private Long curriculumNumber;
 }

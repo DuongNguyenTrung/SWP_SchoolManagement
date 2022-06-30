@@ -12,7 +12,7 @@ import lombok.Data;
 public class Slot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long SlotID;
-    private Long LecturerID;
-    private Long CourseID;
+    private Long id;
+    private Long lecturerId;
+    private Long courseId;
 }

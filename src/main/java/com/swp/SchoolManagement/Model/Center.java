@@ -12,8 +12,8 @@ import lombok.Data;
 public class Center {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long CenterID;
-    private String CourseID;
-    private String CenterName;
-    private String CenterAddress;
+    private Long centerId;
+    private String courseID;
+    private String centerName;
+    private String centerAddress;
 }

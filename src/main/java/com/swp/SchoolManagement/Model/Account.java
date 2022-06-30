@@ -12,10 +12,10 @@ import lombok.Data;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long AccountID;
-    private String Email;
-    private String Password;
-    private String Role;
-    private String Status;
-    private String fullName;
+    private Long id;
+    private String email;
+    private String password;
+    private String fullname;
+    private String role;
+    private String status;
 }

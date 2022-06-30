@@ -12,13 +12,13 @@ import lombok.Data;
 public class Lecturer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long LecturerID;
-    private Long LecturerInCourseID;
-    private String LecturerName;
-    private String LecturerAvatar;
-    private String Dob;
-    private Long LecturerNumber;
-    private String LecturerEmail;
-    private String LecturerAddress;
-    private String LecturerSkillLevel;
+    private Long Id;
+    private Long courseId;
+    private String lecturerName;
+    private String avatar;
+    private String dob;
+    private Long lecturerNumber;
+    private String email;
+    private String address;
+    private String skillLevel;
 }

@@ -12,9 +12,9 @@ import lombok.Data;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long StudentID;
-    private String StudentName;
-    private String StudentAvatar;
-    private String StudentEmail;
+    private Long id;
+    private String fullname;
+    private String avatar;
+    private String email;
     
 }
