@@ -1,4 +1,4 @@
-package com.swp.SchoolManagement.Model;
+package com.swp.SchoolManagement.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,9 +12,12 @@ import lombok.Data;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String fullname;
-    private String avatar;
+    private Long student_id;
+    private String student_name;
+    private String student_code;
     private String email;
+    private String phone;
+    private String address;
+    private String avatar;
     
 }

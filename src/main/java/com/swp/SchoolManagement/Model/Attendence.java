@@ -1,4 +1,4 @@
-package com.swp.SchoolManagement.Model;
+package com.swp.SchoolManagement.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +14,8 @@ public class Attendence {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     private Long id;
-    private Long slotId;
-    private Long studentInCourseId;
-    private String attendanceStatus;
-    private String attendanceDate;
+    private Long timetable_id;
+    private Long day_slot_id;
+    private Long student_id;
+    private String status;
 }

@@ -1,4 +1,4 @@
-package com.swp.SchoolManagement.Model;
+package com.swp.SchoolManagement.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

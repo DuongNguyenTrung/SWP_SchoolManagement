@@ -1,17 +1,14 @@
 package com.swp.SchoolManagement.model;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
-
-@Entity
-@Data
-public class Subject {
+public class Term {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long subject_id;
-    private String subject_des;
+    int term_id;
+    String term_name;
+    String term_start;
+    String term_end;
 }

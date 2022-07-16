@@ -1,4 +1,4 @@
-package com.swp.SchoolManagement.Model;
+package com.swp.SchoolManagement.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +12,6 @@ import lombok.Data;
 public class Slot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Long lecturerId;
-    private Long courseId;
+    private int slot_id;
+    private String time;
 }
