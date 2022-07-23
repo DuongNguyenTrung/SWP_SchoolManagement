@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,9 +25,12 @@ import com.swp.SchoolManagement.config.auth.JwtTokenProvider;
 import com.swp.SchoolManagement.model.Account;
 import com.swp.SchoolManagement.model.CustomUserDetails;
 import com.swp.SchoolManagement.repository.AccountRepository;
+import com.swp.SchoolManagement.request.AuthenticationRequest;
 import com.swp.SchoolManagement.request.RegisterRequest;
 import com.swp.SchoolManagement.response.TokenRes;
 import com.swp.SchoolManagement.services.AccountService;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 public class ControllerHome {
@@ -51,12 +55,10 @@ public class ControllerHome {
         return ResponseEntity.ok().body("tét");
     }
     @PostMapping("/login")
-    public ResponseEntity<TokenRes> Login(
-            @RequestParam("email") String email,
-            @RequestParam("password") String password) {
-        Account a = accountRepository.findByEmail(email);
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(email,
-                password);
+    public ResponseEntity<TokenRes> Login(@RequestBody AuthenticationRequest authenticationRequest) {
+        Account a = accountRepository.findByEmail(authenticationRequest.getEmail());
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
+                authenticationRequest.getPassword());
         Authentication authentication = authenticationManager.authenticate(authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
