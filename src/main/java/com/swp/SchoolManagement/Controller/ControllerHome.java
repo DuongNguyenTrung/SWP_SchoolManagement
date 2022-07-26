@@ -43,11 +43,7 @@ public class ControllerHome {
         String a = accountService.register(request);
         return ResponseEntity.ok().body(a);
     }
-    @GetMapping("/test")
-    public ResponseEntity<String> t() {
-        // String a = accountService.register(request);
-        return ResponseEntity.ok().body("tét");
-    }
+    
     @PostMapping("/login")
     public ResponseEntity<TokenRes> Login(@RequestBody AuthenticationRequest authenticationRequest) {
         Account a = accountRepository.findByEmail(authenticationRequest.getEmail());
