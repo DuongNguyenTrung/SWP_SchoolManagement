@@ -22,11 +22,11 @@ public class ControllerSchedule {
     ScheduleSevice scheduleSevice;
 
     @GetMapping("/scheduleByStudent")
-    public Map<String, List<ScheduleDTO>> schedule(
+    public List<Map<String,ScheduleDTO>> schedule(
             @RequestParam(name = "dateFrom", required = true) String dateFrom,
             @RequestParam(name = "dateTo", required = true) String dateTo,
             @RequestParam(name = "studentId", required = true) int studentId) {
-                Map<String, List<ScheduleDTO>> map = scheduleSevice.ScheduleByStudent(dateFrom, dateTo, studentId);
+                List<Map<String,ScheduleDTO>> map = scheduleSevice.ScheduleByStudent(dateFrom, dateTo, studentId);
                 return map;
 
     }
