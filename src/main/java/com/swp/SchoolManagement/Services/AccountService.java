@@ -34,17 +34,4 @@ public class AccountService {
 
     }
 
-    public String authorize(String role) {
-        switch (role) {
-            case "student":
-                return "Student";
-            case "lecturer":
-                return "Teacher";
-            case "admin":
-                return "Admin";
-
-            default:
-                return "";
-        }
-    }
 }

@@ -17,13 +17,13 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name = "student_id")
-    private Long student_id;
+    private Long studentId;
 
     @Column(name = "student_name")
-    private String student_name;
+    private String studentName;
 
     @Column(name = "student_code")
-    private String student_code;
+    private String studentCode;
 
     @Column(name = "email")
     private String email;

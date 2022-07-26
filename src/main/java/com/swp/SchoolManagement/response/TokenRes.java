@@ -11,4 +11,5 @@ public class TokenRes {
     String token;
     String username;
     String role;
+    Long userId;
 }

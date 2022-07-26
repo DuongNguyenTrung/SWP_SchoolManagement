@@ -18,9 +18,9 @@ public class Term {
     int term_id;
 
     @Column(name = "term_name")
-    String term_name;
+    String termName;
     @Column(name = "term_start")
-    String term_start;
+    String termStart;
     @Column(name = "term_end")
-    String term_end;
+    String termEnd;
 }

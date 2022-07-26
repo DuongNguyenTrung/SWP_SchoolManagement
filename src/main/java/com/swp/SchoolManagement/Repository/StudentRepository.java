@@ -18,5 +18,5 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
 
     
  @Query(value = sql, nativeQuery = true)
- List<Object[]> findScheduleBySrudent(@PathVariable String fromDate ,@PathVariable String toDate,@PathVariable int studentId);
+ List<Object[]> findScheduleByStudent(@PathVariable String fromDate ,@PathVariable String toDate,@PathVariable int studentId);
 }

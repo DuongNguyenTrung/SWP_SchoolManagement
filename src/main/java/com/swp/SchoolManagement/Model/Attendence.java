@@ -15,16 +15,16 @@ import lombok.Data;
 public class Attendence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     private Long id;
     @Column(name = "timetable_id")
-    private Long timetable_id;
+    private Long timetableId;
 
     @Column(name = "day_slot_id")
-    private Long day_slot_id;
+    private Long daySlotId;
 
     @Column(name = "student_id")
-    private Long student_id;
+    private Long studentId;
 
     @Column(name = "status")
     private String status;

@@ -22,4 +22,6 @@ public class Account {
     private String password;
     @Column(name = "role")
     private String role;
+    private Long userId;
+    private int status;
 }

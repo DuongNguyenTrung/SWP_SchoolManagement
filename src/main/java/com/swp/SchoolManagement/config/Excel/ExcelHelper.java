@@ -48,14 +48,14 @@ public class ExcelHelper {
                     Cell currentCell = cellsInRow.next();
                     switch (cellIdx) {
                         case 0:
-                            tutorial.setStudent_id((long) currentCell.getNumericCellValue());
+                            tutorial.setStudentId((long) currentCell.getNumericCellValue());
                             ;
                             break;
                         case 1:
-                            tutorial.setStudent_name(currentCell.getStringCellValue());
+                            tutorial.setStudentName(currentCell.getStringCellValue());
                             break;
                         case 2:
-                            tutorial.setStudent_code(currentCell.getStringCellValue());
+                            tutorial.setStudentCode(currentCell.getStringCellValue());
                             break;
                         case 3:
                             tutorial.setEmail(currentCell.getStringCellValue());

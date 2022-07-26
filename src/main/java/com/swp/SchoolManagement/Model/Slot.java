@@ -16,7 +16,7 @@ public class Slot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "slot_id")
-    private int slot_id;
+    private int slotId;
     @Column(name = "time")
     private String time;
 }

@@ -15,9 +15,10 @@ import lombok.Data;
 public class Class {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int class_id;
-    @Column(name ="class_name" )
-    String class_name;
-    @Column(name ="term_id" )
-    int term_id;
+    @Column(name = "class_id")
+    int classId;
+    @Column(name = "class_name")
+    String className;
+    @Column(name = "term_id")
+    int termId;
 }

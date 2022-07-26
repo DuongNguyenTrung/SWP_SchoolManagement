@@ -28,7 +28,7 @@ public class ScheduleSevice {
     public Map<String,List<ScheduleDTO>> ScheduleByStudent(String fromDate,String toDate,int studentId){
     
         
-        List<Object[]> object = repository.findScheduleBySrudent(fromDate,toDate,studentId); 
+        List<Object[]> object = repository.findScheduleByStudent(fromDate,toDate,studentId); 
 
         List<ScheduleDTO> list = object.stream().map(obj->{
             ScheduleDTO dto = new ScheduleDTO();

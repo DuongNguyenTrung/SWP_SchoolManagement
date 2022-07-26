@@ -20,9 +20,9 @@ public class DaySlot {
     private Long id;
 
     @Column(name = "slot_id")
-    private Long slot_id;
+    private Long slotId;
 
     @Column(name = "day_id")
-    private String day_id;
+    private String dayId;
 
 }
