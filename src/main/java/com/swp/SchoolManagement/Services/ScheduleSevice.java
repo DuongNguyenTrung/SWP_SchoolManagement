@@ -24,7 +24,7 @@ public class ScheduleSevice {
 
     @Autowired
     StudentRepository repository;
-    @PersistenceContext(name = "primaryEM")
+    @PersistenceContext()
     EntityManager entityManager;
 
     public List<Map<String,ScheduleDTO>> ScheduleByStudent(String fromDate, String toDate, int studentId) {

@@ -1,8 +1,8 @@
 package com.swp.SchoolManagement.controller;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,11 +43,12 @@ public class ControllerHome {
         String a = accountService.register(request);
         return ResponseEntity.ok().body(a);
     }
-    
+
     @PostMapping("/login")
     public ResponseEntity<TokenRes> Login(@RequestBody AuthenticationRequest authenticationRequest) {
         Account a = accountRepository.findByEmail(authenticationRequest.getEmail());
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                authenticationRequest.getEmail(),
                 authenticationRequest.getPassword());
         Authentication authentication = authenticationManager.authenticate(authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -56,8 +57,22 @@ public class ControllerHome {
         String token = jwtTokenProvider.generateToken(details);
         List<SimpleGrantedAuthority> ls = (List<SimpleGrantedAuthority>) details.getAuthorities().stream()
                 .collect(Collectors.toList());
-        TokenRes res = new TokenRes(token, details.getUsername(), ls.get(0).getAuthority(),details.getAccount().getUserId());
+        TokenRes res = new TokenRes(token, details.getUsername(), ls.get(0).getAuthority(),
+                details.getAccount().getUserId());
         // res.setToken(jwtTokenProvider);
         return ResponseEntity.ok().body(res);
     }
+
+    @PostMapping("/change-password")
+    public ResponseEntity<String> changePassword(String oldPassword, String newPassword) {
+        CustomUserDetails user = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+
+        if (accountService.changePassword(user.getAccount().getId(), oldPassword, newPassword)) {
+            return ResponseEntity.ok().body("change password succesfully !");
+        }
+        ;
+        return ResponseEntity.status(404).body("wrong old password");
+    }
+
 }
