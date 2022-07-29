@@ -52,21 +52,18 @@ public class ExcelHelper {
                             ;
                             break;
                         case 1:
-                            tutorial.setStudentName(currentCell.getStringCellValue());
+                            tutorial.setFullname(currentCell.getStringCellValue());
                             break;
                         case 2:
                             tutorial.setStudentCode(currentCell.getStringCellValue());
                             break;
                         case 3:
-                            tutorial.setEmail(currentCell.getStringCellValue());
-                            break;
-                        case 4:
                             tutorial.setPhone(currentCell.getStringCellValue());
                             break;
-                        case 5:
+                        case 4:
                             tutorial.setAddress(currentCell.getStringCellValue());
                             break;
-                        case 6:
+                        case 5:
                             tutorial.setAvatar(currentCell.getStringCellValue());
                             break;
                         default:

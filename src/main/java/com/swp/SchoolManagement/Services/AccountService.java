@@ -12,13 +12,21 @@ import org.springframework.stereotype.Service;
 import com.swp.SchoolManagement.DTO.EmailDetails;
 import com.swp.SchoolManagement.config.exception.GlobalExeption;
 import com.swp.SchoolManagement.model.Account;
+import com.swp.SchoolManagement.model.Student;
+import com.swp.SchoolManagement.model.Teacher;
 import com.swp.SchoolManagement.repository.AccountRepository;
+import com.swp.SchoolManagement.repository.StudentRepository;
+import com.swp.SchoolManagement.repository.TeacherRepository;
 import com.swp.SchoolManagement.request.RegisterRequest;
 
 @Service
 public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
+    @Autowired
+    private TeacherRepository teacherRepository;
+    @Autowired
+    private StudentRepository studentRepository;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -30,10 +38,29 @@ public class AccountService {
     EmailServiceImpl emailService;
 
     public String register(RegisterRequest request) {
+        Long userId = null;
+        switch (request.role) {
+            case "student":
+                Student s = new Student();
+                String scode = studentRepository.findTopByOrderByStudentIdDesc().getStudentCode();
+                s.setStudentCode("SE" + (Integer.parseInt(scode.substring(2)) + 1));
+                s.setFullname(request.fullname);
+                userId = studentRepository.save(s).getStudentId();
+                break;
+            case "teacher":
+                Teacher t = new Teacher();
+                t.setFullname(request.fullname);
+                userId = teacherRepository.save(t).getTeacherId();
+                break;
+
+            default:
+                break;
+        }
         Account a = new Account();
         a.setEmail(request.email);
         a.setPassword(bCryptPasswordEncoder.encode(request.password));
         a.setRole(request.role);
+        a.setUserId(userId);
         Account res = accountRepository.save(a);
         if (res == null) {
             throw new GlobalExeption(404, "fail to create account with email: " + request.email);
