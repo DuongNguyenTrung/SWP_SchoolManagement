@@ -11,8 +11,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.swp.SchoolManagement.services.UserService;
 
@@ -53,12 +55,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors() // Ngăn chặn request từ một domain khác
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login","/register").permitAll()// Cho phép tất cả mọi người truy cập vào địa chỉ này
+                .antMatchers("/login", "/register").permitAll()// Cho phép tất cả mọi người truy cập vào địa chỉ này
                 .antMatchers(AUTH_WHITELIST).permitAll() // swagger
                 .anyRequest().authenticated(); // Tất cả các request khác đều cần phải xác thực mới được truy cập
 
         // Thêm một lớp Filter kiểm tra jwt
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+        return source;
     }
 
     private static final String[] AUTH_WHITELIST = {
@@ -75,4 +84,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/swagger-ui/**"
             // other public endpoints of your API may be appended to this array
     };
+
 }

@@ -7,31 +7,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@Table(name = "Student")
-public class Student {
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table
+public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    @Column(name = "student_id")
-    private Long studentId;
-
+    @Column(name = "teacher_id")
+    private long teacherId;
     @Column(name = "fullname")
     private String fullname;
-
-    @Column(name = "student_code")
-    private String studentCode;
-
-    @Column(name = "phone")
-    private String phone;
-
     @Column(name = "address")
     private String address;
-
+    @Column(name = "rank")
+    private String rank;
     @Column(name = "avatar")
     private String avatar;
-
 }
