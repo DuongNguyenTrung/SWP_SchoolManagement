@@ -11,11 +11,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.swp.SchoolManagement.DTO.AttendStudent;
 import com.swp.SchoolManagement.DTO.ScheduleDTO;
 import com.swp.SchoolManagement.repository.StudentRepository;
+import com.swp.SchoolManagement.repository.TeacherRepository;
 import com.swp.SchoolManagement.util.Util;
 
 @Service
@@ -24,6 +27,10 @@ public class ScheduleSevice {
 
     @Autowired
     StudentRepository repository;
+
+    @Autowired
+    TeacherRepository repository1;
+            
     @PersistenceContext()
     EntityManager entityManager;
 
@@ -59,5 +66,40 @@ public class ScheduleSevice {
             }
         }
         return res;
+    }
+    
+    public List<Object> listSubject(int teacherId){
+        return repository1.getListSubject(teacherId);    
+    }
+
+    public List<Object> listClass(int teacherId,String subjectID){
+        return repository1.getListClass(teacherId, subjectID);    
+    }
+    
+    public List<AttendStudent> getAttendStudent(int classId,String subjectId,String fromDate,String toDate){
+       List<Object[]> list = repository1.getAttendStudent(classId, subjectId, fromDate, toDate);
+       List<AttendStudent> res =  list.stream().map(obj ->{
+            AttendStudent a = new AttendStudent();
+                        a.setStudentCode(Util.parseString(obj[0]));
+                        a.setFullname(Util.parseString(obj[1]));
+                        a.setAvatar(Util.parseString(obj[2]));
+                        a.setStatus(Util.parseInt(obj[3]));
+                        a.setAttendId(Util.parseLong(obj[4]));
+                        return a;
+       }).collect(Collectors.toList());
+       return res;
+    }
+    public void updateAttend(Integer status,Integer attendId){
+        String sql = "update Attendance set  status  = :status where id = :attendId";
+
+        StringBuilder strBuilderQuery = new StringBuilder(sql);
+        Query query = entityManager.createNativeQuery(strBuilderQuery.toString());
+        if(status != null){
+            query.setParameter("status",status);
+        }
+        if(attendId != null){
+            query.setParameter("attendId",attendId);
+        }
+        query.executeUpdate();
     }
 }
