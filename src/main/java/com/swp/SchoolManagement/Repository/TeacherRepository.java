@@ -23,7 +23,7 @@ public interface TeacherRepository extends JpaRepository<Teacher, Long> {
     @Query(value = sql1, nativeQuery = true)
     List<Object[]> getListClass(int teacherId,String subjectId );
 
-    String sql2 = "select s.student_code,s.fullname,s.avatar,t.status,a.id from Student s    "+
+    String sql2 = "select s.student_code,s.fullname,s.avatar,a.status,a.id from Student s    "+
     "join Attendance a on a.student_id = s.student_id   "+
     "join Timetable t on t.timetable_id = a.timetable_id  "+
     "join DaySlot d on d.id = a.day_slot_id    "+

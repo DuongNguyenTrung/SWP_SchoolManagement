@@ -6,18 +6,23 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.swp.SchoolManagement.DTO.EmailDetails;
 import com.swp.SchoolManagement.config.exception.GlobalExeption;
 import com.swp.SchoolManagement.model.Account;
+import com.swp.SchoolManagement.model.CustomUserDetails;
 import com.swp.SchoolManagement.model.Student;
 import com.swp.SchoolManagement.model.Teacher;
 import com.swp.SchoolManagement.repository.AccountRepository;
 import com.swp.SchoolManagement.repository.StudentRepository;
 import com.swp.SchoolManagement.repository.TeacherRepository;
 import com.swp.SchoolManagement.request.RegisterRequest;
+import com.swp.SchoolManagement.response.InfoDTO;
+import com.swp.SchoolManagement.response.UpdateInfoReq;
 
 @Service
 public class AccountService {
@@ -38,6 +43,9 @@ public class AccountService {
     EmailServiceImpl emailService;
 
     public String register(RegisterRequest request) {
+        if (accountRepository.findByEmail(request.email) != null) {
+            throw new GlobalExeption(404, "Email exist!");
+        }
         Long userId = null;
         switch (request.role) {
             case "student":
@@ -89,4 +97,69 @@ public class AccountService {
         return accountRepository.findByEmail(email) == null;
     }
 
+    public InfoDTO getInfo() {
+        CustomUserDetails details = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        switch (details.getAccount().getRole()) {
+            case "student":
+                Student s = studentRepository.getById(details.getAccount().getUserId());
+                InfoDTO i = new InfoDTO();
+                i.setId(details.getAccount().getUserId());
+                i.setEmail(details.getUsername());
+                i.setAddress(s.getAddress());
+                i.setFullname(s.getFullname());
+                i.setDob(s.getDob());
+                i.setGender(s.getGender());
+                i.setPhone(s.getPhone());
+                i.setAvatar(s.getAvatar());
+                return i;
+            case "teacher":
+                Teacher t = teacherRepository.getById(details.getAccount().getUserId());
+                i = new InfoDTO();
+                i.setId(details.getAccount().getUserId());
+                i.setEmail(details.getUsername());
+                i.setAddress(t.getAddress());
+                i.setFullname(t.getFullname());
+                i.setDob(t.getDob());
+                i.setGender(t.getGender());
+                i.setPhone(t.getPhone());
+                i.setAvatar(t.getAvatar());
+                return i;
+
+            default:
+                break;
+        }
+        return null;
+    }
+
+    public boolean updateInfo(UpdateInfoReq request) {
+        CustomUserDetails details = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        switch (details.getAccount().getRole()) {
+            case "student":
+                Student s = studentRepository.getById(details.getAccount().getUserId());
+                s.setAddress(request.getAddress());
+                s.setFullname(request.getFullname());
+                s.setDob(request.getDob());
+                s.setGender(request.isGender());
+                s.setPhone(request.getPhone());
+                s.setAvatar(request.getAvatar());
+                studentRepository.save(s);
+                return true;
+            case "teacher":
+                Teacher t = teacherRepository.getById(details.getAccount().getUserId());
+                t.setAddress(request.getAddress());
+                t.setFullname(request.getFullname());
+                t.setDob(request.getDob());
+                t.setGender(request.isGender());
+                t.setPhone(request.getPhone());
+                t.setAvatar(request.getAvatar());
+                teacherRepository.save(t);
+                return true;
+
+            default:
+                break;
+        }
+        return false;
+    }
 }

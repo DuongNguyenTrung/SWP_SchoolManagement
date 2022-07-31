@@ -29,4 +29,10 @@ public class Teacher {
     private String rank;
     @Column(name = "avatar")
     private String avatar;
+    @Column(name = "gender")
+    private Boolean gender;
+    @Column(name = "dob")
+    private String dob;
+    @Column(name = "phone")
+    public String phone;
 }

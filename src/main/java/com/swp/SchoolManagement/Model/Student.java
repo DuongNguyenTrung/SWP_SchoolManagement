@@ -34,4 +34,10 @@ public class Student {
     @Column(name = "avatar")
     private String avatar;
 
+    @Column(name = "gender")
+    private Boolean gender;
+
+    @Column(name = "dob")
+    private String dob;
+
 }

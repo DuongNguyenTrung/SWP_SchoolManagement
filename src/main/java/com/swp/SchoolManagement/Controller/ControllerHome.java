@@ -19,9 +19,13 @@ import com.swp.SchoolManagement.config.auth.JwtTokenProvider;
 import com.swp.SchoolManagement.model.Account;
 import com.swp.SchoolManagement.model.CustomUserDetails;
 import com.swp.SchoolManagement.repository.AccountRepository;
+import com.swp.SchoolManagement.repository.StudentRepository;
+import com.swp.SchoolManagement.repository.TeacherRepository;
 import com.swp.SchoolManagement.request.AuthenticationRequest;
 import com.swp.SchoolManagement.request.RegisterRequest;
+import com.swp.SchoolManagement.response.InfoDTO;
 import com.swp.SchoolManagement.response.TokenRes;
+import com.swp.SchoolManagement.response.UpdateInfoReq;
 import com.swp.SchoolManagement.services.AccountService;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -37,6 +41,10 @@ public class ControllerHome {
 
     @Autowired
     AccountRepository accountRepository;
+    @Autowired
+    private TeacherRepository teacherRepository;
+    @Autowired
+    private StudentRepository studentRepository;
 
     @GetMapping("/register")
     public ResponseEntity<String> register(RegisterRequest request) {
@@ -46,7 +54,7 @@ public class ControllerHome {
 
     @PostMapping("/login")
     public ResponseEntity<TokenRes> Login(@RequestBody AuthenticationRequest authenticationRequest) {
-        Account a = accountRepository.findByEmail(authenticationRequest.getEmail());
+
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                 authenticationRequest.getEmail(),
                 authenticationRequest.getPassword());
@@ -57,8 +65,21 @@ public class ControllerHome {
         String token = jwtTokenProvider.generateToken(details);
         List<SimpleGrantedAuthority> ls = (List<SimpleGrantedAuthority>) details.getAuthorities().stream()
                 .collect(Collectors.toList());
+        String img = "";
+        switch (ls.get(0).getAuthority()) {
+            case "student":
+                img = studentRepository.getById(details.getAccount().getUserId()).getAvatar();
+                break;
+            case "teacher":
+                img = teacherRepository.getById(details.getAccount().getUserId()).getAvatar();
+                break;
+
+            default:
+                break;
+        }
+
         TokenRes res = new TokenRes(token, details.getUsername(), ls.get(0).getAuthority(),
-                details.getAccount().getUserId());
+                details.getAccount().getUserId(), img);
         // res.setToken(jwtTokenProvider);
         return ResponseEntity.ok().body(res);
     }
@@ -75,4 +96,13 @@ public class ControllerHome {
         return ResponseEntity.status(404).body("wrong old password");
     }
 
+    @GetMapping("/getinfo")
+    public ResponseEntity<InfoDTO> getInfo() {
+        return ResponseEntity.ok().body(accountService.getInfo());
+    }
+
+    @PostMapping("/update-info")
+    public ResponseEntity<Boolean> updateInfo(UpdateInfoReq updateInfoReq) {
+        return ResponseEntity.ok().body(accountService.updateInfo(updateInfoReq));
+    }
 }
