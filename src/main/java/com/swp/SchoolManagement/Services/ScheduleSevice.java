@@ -17,8 +17,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.swp.SchoolManagement.DTO.AttendStudent;
 import com.swp.SchoolManagement.DTO.ScheduleDTO;
+import com.swp.SchoolManagement.repository.ClassRepository;
 import com.swp.SchoolManagement.repository.StudentRepository;
 import com.swp.SchoolManagement.repository.TeacherRepository;
+import com.swp.SchoolManagement.response.ListClass;
 import com.swp.SchoolManagement.util.Util;
 
 @Service
@@ -30,6 +32,9 @@ public class ScheduleSevice {
 
     @Autowired
     TeacherRepository repository1;
+
+    @Autowired
+    ClassRepository repository2;
             
     @PersistenceContext()
     EntityManager entityManager;
@@ -72,12 +77,18 @@ public class ScheduleSevice {
         return repository1.getListSubject(teacherId);    
     }
 
-    public List<Object> listClass(int teacherId,String subjectID){
-        return repository1.getListClass(teacherId, subjectID);    
+    public List<ListClass> listClass(int teacherId,String subjectID){
+        List<Object[]> list = repository1.getListClass(teacherId, subjectID);
+        return list.stream().map(obj->{
+            ListClass l = new ListClass();
+            l.setId(Util.parseInt(obj[0]));
+            l.setClassName(Util.parseString(obj[1]));
+            return l;
+        }).collect(Collectors.toList());
     }
     
-    public List<AttendStudent> getAttendStudent(int classId,String subjectId,String fromDate,String toDate){
-       List<Object[]> list = repository1.getAttendStudent(classId, subjectId, fromDate, toDate);
+    public List<AttendStudent> getAttendStudent(int classId,String subjectId,String fromDate){
+       List<Object[]> list = repository1.getAttendStudent(classId, subjectId, fromDate);
        List<AttendStudent> res =  list.stream().map(obj ->{
             AttendStudent a = new AttendStudent();
                         a.setStudentCode(Util.parseString(obj[0]));
@@ -101,5 +112,14 @@ public class ScheduleSevice {
             query.setParameter("attendId",attendId);
         }
         query.executeUpdate();
+    }
+    public  List<Object> getClassList(String subjectId){
+        List<Object[]> list = repository2.getClassList(subjectId);
+        return list.stream().map(obj->{
+            ListClass l = new ListClass();
+            l.setId(Util.parseInt(obj[0]));
+            l.setClassName(Util.parseString(obj[1]));
+            return l;
+        }).collect(Collectors.toList());
     }
 }

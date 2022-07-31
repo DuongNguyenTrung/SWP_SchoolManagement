@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.swp.SchoolManagement.DTO.AttendStudent;
 import com.swp.SchoolManagement.DTO.ScheduleDTO;
+import com.swp.SchoolManagement.response.ListClass;
 import com.swp.SchoolManagement.services.ScheduleSevice;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,19 +39,18 @@ public class ControllerSchedule {
                 return list;
     }
     @GetMapping("/listClass")
-    public List<Object> getListClass(
+    public List<ListClass> getListClass(
             @RequestParam(name = "teacherId", required = true) int teacherId,
             @RequestParam(name = "subjectId", required = true) String subjectId) {
-                List<Object> list = scheduleSevice.listClass(teacherId, subjectId);
+                List<ListClass> list = scheduleSevice.listClass(teacherId, subjectId);
                 return list;
     }
     @GetMapping("/listAttendStudent")
     public  List<AttendStudent> listAttendStudent(
             @RequestParam(name = "classId", required = true) int classId,
             @RequestParam(name = "subjectId", required = true) String subjectId,
-            @RequestParam(name = "fromDate", required = true) String fromDate,
-            @RequestParam(name = "toDate", required = true) String toDate) {
-            List<AttendStudent> list = scheduleSevice.getAttendStudent(classId, subjectId, fromDate, toDate);
+            @RequestParam(name = "fromDate", required = true) String fromDate) {
+            List<AttendStudent> list = scheduleSevice.getAttendStudent(classId, subjectId, fromDate);
                 return list;
     }
     @PutMapping("/updateAttend")
@@ -59,6 +59,12 @@ public class ControllerSchedule {
             @RequestParam(name = "attendId", required = true) Integer attendId) {
                     scheduleSevice.updateAttend(status, attendId);
     }
+    @GetMapping("/Class-Student choose")
+    public  List<Object> listClass(
+        @RequestParam(name = "subjectId", required = true) String subjectId) {
+        return scheduleSevice.getClassList(subjectId);
+
+    }
+    }
     
-    
-}
+
