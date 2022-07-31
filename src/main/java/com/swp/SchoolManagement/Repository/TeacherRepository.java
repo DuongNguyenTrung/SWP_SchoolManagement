@@ -15,7 +15,7 @@ public interface TeacherRepository extends JpaRepository<Teacher, Long> {
     @Query(value = sql, nativeQuery = true)
     List<Object> getListSubject(int id);
 
-    String sql1 = "select  distinct(c.id) ,c.class_name  "+
+    String sql1 = "select  distinct(c.class_id) ,c.class_name  "+
     "from Teacher t join TeacherClass tc on t.teacher_id = tc.teacher_id "+
     "join Timetable o on o.class_id = tc.class_id  "+
     "join Class c on c.class_id = tc.class_id  "+
