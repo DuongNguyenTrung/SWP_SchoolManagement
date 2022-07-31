@@ -122,4 +122,22 @@ public class ScheduleSevice {
             return l;
         }).collect(Collectors.toList());
     }
+    public void insertStudentClass(Integer studentId,Integer classId,String subjectId){
+        String sql = "INSERT INTO StudentClass(student_id,class_id) VALUES (:studentId,:classId); "+
+        "insert into Attendance(timetable_id,day_slot_id,student_id,status) "+
+        "select timetable_id,day_slot_id,:studentId,2 from Timetable where class_id= :classId and subject_id= :subjectId";
+
+        StringBuilder strBuilderQuery = new StringBuilder(sql);
+        Query query = entityManager.createNativeQuery(strBuilderQuery.toString());
+        if(studentId != null){
+            query.setParameter("studentId",studentId);
+        }
+        if(classId != null){
+            query.setParameter("classId",classId);
+        }
+        if(subjectId != null){
+            query.setParameter("subjectId",subjectId);
+        }
+        query.executeUpdate();
+    }
 }
