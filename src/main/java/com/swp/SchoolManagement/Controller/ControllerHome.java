@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.swp.SchoolManagement.DTO.AccountDTO;
 import com.swp.SchoolManagement.config.auth.JwtTokenProvider;
-import com.swp.SchoolManagement.model.Account;
 import com.swp.SchoolManagement.model.CustomUserDetails;
 import com.swp.SchoolManagement.repository.AccountRepository;
 import com.swp.SchoolManagement.repository.StudentRepository;
@@ -104,5 +104,32 @@ public class ControllerHome {
     @PostMapping("/update-info")
     public ResponseEntity<Boolean> updateInfo(UpdateInfoReq updateInfoReq) {
         return ResponseEntity.ok().body(accountService.updateInfo(updateInfoReq));
+    }
+
+    @GetMapping("/get-list-account")
+    public List<AccountDTO> getListAccount(String email, String role, Integer status) {
+        return accountService.getListAccount(email, role, status);
+    }
+
+    @PostMapping("/account/update-status")
+    public ResponseEntity<Boolean> updateStatus(long id, int status) {
+        return ResponseEntity.ok().body(accountService.updateStatusAccount(id, status));
+    }
+
+    @GetMapping("/account/refreshtoken")
+    public ResponseEntity<Boolean> genToken(String email) {
+
+        return ResponseEntity.ok().body(accountService.genRefreshToken(email));
+    }
+
+    @GetMapping("/account/verifytoken")
+    public ResponseEntity<Boolean> verifyToken(String email, String token) {
+        return ResponseEntity.ok().body(accountService.verifyToken(email, token));
+    }
+
+    @PostMapping("/account/resetpassword")
+    public ResponseEntity<Boolean> resetPassword(String email, String token, String password) {
+        accountService.refreshPassword(email, token, password);
+        return ResponseEntity.ok().body(true);
     }
 }

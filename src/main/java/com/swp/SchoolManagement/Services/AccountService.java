@@ -1,16 +1,26 @@
 package com.swp.SchoolManagement.services;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.swp.SchoolManagement.DTO.AccountDTO;
 import com.swp.SchoolManagement.DTO.EmailDetails;
 import com.swp.SchoolManagement.config.exception.GlobalExeption;
 import com.swp.SchoolManagement.model.Account;
@@ -161,5 +171,86 @@ public class AccountService {
                 break;
         }
         return false;
+    }
+
+    public List<AccountDTO> getListAccount(String email, String role, Integer status) {
+
+        return (List<AccountDTO>) accountRepository.findAll(accountSpecification(email, role, status)).stream()
+                .map(e -> {
+                    String fullname = "";
+                    switch (e.getRole()) {
+                        case "student":
+                            fullname = studentRepository.getById(e.getUserId()).getFullname();
+                            break;
+                        case "teacher":
+                            fullname = teacherRepository.getById(e.getUserId()).getFullname();
+                            break;
+                    }
+                    AccountDTO a = new AccountDTO(e.getId(), e.getEmail(), fullname, e.getRole(), e.getStatus());
+                    return a;
+                }).collect(Collectors.toList());
+    }
+
+    private Specification<Account> accountSpecification(String email, String role, Integer status) {
+        return new Specification<Account>() {
+
+            @Override
+            public Predicate toPredicate(Root<Account> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
+                List<Predicate> predicates = new ArrayList<>();
+                if (email != null) {
+                    predicates.add(builder.like(root.get("email"), "%" + email + "%"));
+                }
+                if (role != null) {
+                    predicates.add(builder.equal(root.get("role"), role));
+                }
+                if (status != null) {
+                    predicates.add(builder.equal(root.get("status"), status));
+                }
+                return builder.and(predicates.toArray(new Predicate[0]));
+            }
+
+        };
+
+    }
+
+    public boolean updateStatusAccount(long id, int status) {
+        Account a = accountRepository.getById(id);
+        a.setStatus(status);
+        accountRepository.save(a);
+        return true;
+    }
+
+    public boolean genRefreshToken(String email) {
+        Random r = new Random();
+        int number = r.nextInt(999999);
+        Account a = accountRepository.findByEmail(email);
+        if (a == null)
+            throw new GlobalExeption(400, "Email " + email + " not found");
+        a.setRefreshToken(String.format("%06d", number));
+        accountRepository.save(a);
+        emailService
+                .sendSimpleMail(new EmailDetails(email, "Your refresh token is: " + String.format("%06d", number),
+                        "Token reset password", null));
+        return true;
+    }
+
+    public String refreshPassword(String email, String token, String password) {
+        Account a = accountRepository.findByEmail(email);
+        System.out.println(a.getRefreshToken() + " " + token);
+        if (a.getRefreshToken().isEmpty() || !a.getRefreshToken().equals(token))
+            throw new GlobalExeption(403, "Token does not match");
+        a.setPassword(bCryptPasswordEncoder.encode(password));
+
+        a.setRefreshToken("");
+        accountRepository.save(a);
+        return "Password reset successfully!";
+    }
+
+    public boolean verifyToken(String email, String token) {
+        Account a = accountRepository.findByEmail(email);
+        System.out.println(a.getRefreshToken() + " " + token);
+        if (a.getRefreshToken().isEmpty() || !a.getRefreshToken().equals(token))
+            return false;
+        return true;
     }
 }

@@ -3,16 +3,17 @@ package com.swp.SchoolManagement.controller;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.swp.SchoolManagement.DTO.AttendDTO;
 import com.swp.SchoolManagement.DTO.AttendStudent;
 import com.swp.SchoolManagement.DTO.ScheduleDTO;
+import com.swp.SchoolManagement.DTO.SubjectDTO;
+import com.swp.SchoolManagement.model.Term;
 import com.swp.SchoolManagement.response.ListClass;
 import com.swp.SchoolManagement.services.ScheduleSevice;
 
@@ -68,4 +69,34 @@ public class ControllerSchedule {
         return ResponseEntity.ok().body(true);
     }
 
+    @GetMapping("/class-student")
+    public List<Object> listClass(
+            @RequestParam(name = "subjectId", required = true) String subjectId) {
+        return scheduleSevice.getClassList(subjectId);
+
+    }
+
+    @PostMapping("/insert-class-student")
+    public void insertClassStudent(
+            @RequestParam(name = "studentId", required = true) Integer studentId,
+            @RequestParam(name = "classId", required = true) Integer classId,
+            @RequestParam(name = "subjectId", required = true) String subjectId) {
+        scheduleSevice.insertStudentClass(studentId, classId, subjectId);
+        ;
+    }
+
+    @GetMapping("/listsubject")
+    public ResponseEntity<List<SubjectDTO>> getListSubjectByTerm(Integer termId, Integer studentId) {
+        return ResponseEntity.ok().body(scheduleSevice.getListSubjectOfStudent(termId, studentId));
+    }
+
+    @GetMapping("/attendance/list")
+    public ResponseEntity<List<AttendDTO>> getListAttend(Integer studentId, String subjectId, Integer classId) {
+        return ResponseEntity.ok().body(scheduleSevice.getListAttend(studentId, subjectId, classId));
+    }
+
+    @GetMapping("/listterm")
+    public ResponseEntity<List<Term>> getListTerm() {
+        return ResponseEntity.ok().body(scheduleSevice.getListTerm());
+    }
 }

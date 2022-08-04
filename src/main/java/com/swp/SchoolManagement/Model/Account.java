@@ -26,4 +26,6 @@ public class Account {
     private Long userId;
     @Column(name = "status")
     private int status;
+    @Column(name = "refresh_token")
+    private String refreshToken;
 }

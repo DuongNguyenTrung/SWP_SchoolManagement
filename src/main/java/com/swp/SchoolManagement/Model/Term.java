@@ -11,16 +11,17 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "Term" )
+@Table(name = "Term")
 public class Term {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int term_id;
-
+    @Column(name = "term_id")
+    Integer termId;
     @Column(name = "term_name")
     String termName;
     @Column(name = "term_start")
     String termStart;
     @Column(name = "term_end")
     String termEnd;
+    String year;
 }
